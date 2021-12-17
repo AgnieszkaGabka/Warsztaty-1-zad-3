@@ -4,10 +4,10 @@ def zgadnij():
     dobrze = False
     min = 0
     max = 1000
-    while not dobrze:
-        guess = int((max - min) / 2) + min
+    while not dobrze: #dopóki komputer nie zgdanie liczby gracza, wykonaj poniższe działania
+        guess = int((max - min) / 2) + min #oblicznie zgadywanej liczby
         print(f"Zgaduję: {guess}")
-        try:
+        try: #wprowadzenie odpowiedzi przez gracza
             a = (int(input("Wybierz odpowiedź: \
             1 - za dużo\
             2 - za mało\
@@ -16,13 +16,14 @@ def zgadnij():
                 print("Wygrałem!")
                 dobrze = True
             elif a == 2:
-                min = guess
+                min = guess #jeśli za mało, przelicz wartość zgadywanej liczby bazując na poprzednio zgadywanej liczbie
             elif a == 1:
-                max = guess
+                max = guess #jeśli za dużo, przelicz wartość zgadywanej liczby bazując na poprzednio zgadywanej liczbie
             else:
                 print("Nie oszukuj!")
-        except (ValueError):
-            print("Wprowadż liczbę!")
+        except (ValueError, TypeError):
+            print("Wprowadż liczbę!") #jeśli wrowadzona dana nie jest liczbą lub nie mieści się w przedziale 1-1000, wyświetl odpowiedź
 
 
 print(zgadnij())
+
